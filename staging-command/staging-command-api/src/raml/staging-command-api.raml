@@ -1,0 +1,29 @@
+#%RAML 0.8
+title: Staging - Command API
+baseUri: http://localhost:8080/staging-command-api/command/api/rest/staging
+protocols: [HTTP]
+version: v0.1
+documentation:
+        - title:  Overview of write / update services within Staging Command API Tier
+          content: List of all write / update services
+
+/identity.event:
+  post:
+    description: |
+      Indicates an IDAM event has occurred
+      ...
+      (mapping):
+          requestType: application/vnd.staging.record-idam-command+json
+          name: staging.record-idam-command
+      ...
+    body:
+      application/vnd.staging.record-idam-command+json:
+         schema: !include json/schema/staging.record-idam-command.json
+         example: !include json/staging.record-idam-command.json
+    responses:
+      202:
+        description: Accepted
+      400:
+        description: Bad Request
+      500:
+        description: Internal Server Error

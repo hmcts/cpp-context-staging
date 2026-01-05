@@ -1,0 +1,21 @@
+#%RAML 0.8
+title: Staging - Command Handler
+baseUri: message://command/handler/message/staging
+documentation:
+        - title:  Overview of write / update services within Staging Handler Tier
+          content: List of all write / update services
+/staging.handler.command:
+  post:
+    description: Handle idam action
+    body:
+       application/vnd.staging.record-idam-command+json:
+        schema:
+          !include json/schema/staging.record-idam-command.json
+        example:
+          !include json/staging.record-idam-command.json
+
+    responses:
+        500:
+            description: Internal Server Error
+        202:
+            description: OK

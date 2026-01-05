@@ -1,0 +1,106 @@
+#%RAML 0.8
+title: IDAM Event API
+baseUri: http://localhost:8080/staging-event-api/event/api/rest/staging
+protocols: [HTTP]
+version: v0.1
+documentation:
+        - title:  IDAM Event API
+          content: IDAM Event API
+/identity.event:
+  post:
+    description: |
+      IDAM Event API
+      ...
+      (mapping):
+          requestType: application/vnd.identity.events.account-created+json
+          name: identity.events.account-created
+      (mapping):
+          requestType: application/vnd.identity.events.account-updated+json
+          name: identity.events.account-updated
+      (mapping):
+          requestType: application/vnd.identity.events.account-suspension-setup+json
+          name: identity.events.account-suspension-setup
+      (mapping):
+          requestType: application/vnd.identity.events.account-suspension-updated+json
+          name: identity.events.account-suspension-updated
+      (mapping):
+          requestType: application/vnd.identity.events.account-deregistered+json
+          name: identity.events.account-deregistered
+      (mapping):
+          requestType: application/vnd.identity.events.account-reregistered+json
+          name: identity.events.account-reregistered
+      (mapping):
+          requestType: application/vnd.identity.events.account-deleted+json
+          name: identity.events.account-deleted
+      (mapping):
+          requestType: application/vnd.identity.events.account-enrolment-changed+json
+          name: identity.events.account-enrolment-changed
+      (mapping):
+          requestType: application/vnd.identity.events.organisation-created+json
+          name: identity.events.organisation-created
+      (mapping):
+          requestType: application/vnd.identity.events.organisation-updated+json
+          name: identity.events.organisation-updated
+      (mapping):
+          requestType: application/vnd.identity.events.organisation-deregistered+json
+          name: identity.events.organisation-deregistered
+      (mapping):
+          requestType: application/vnd.identity.events.organisation-reregistered+json
+          name: identity.events.organisation-reregistered
+      (mapping):
+          requestType: application/vnd.identity.events.organisation-deleted+json
+          name: identity.events.organisation-deleted
+      (mapping):
+          requestType: application/vnd.identity.events.organisation-synchronisation+json
+          name: identity.events.organisation-synchronisation
+      ...
+    body:
+      application/vnd.identity.events.account-created+json:
+         schema: !include json/schema/identity.events.account-created.json
+         example: !include json/identity.events.account-created.json
+      application/vnd.identity.events.account-updated+json:
+         schema: !include json/schema/identity.events.account-updated.json
+         example: !include json/identity.events.account-updated.json
+      application/vnd.identity.events.account-suspension-setup+json:
+         schema: !include json/schema/identity.events.account-suspension-setup.json
+         example: !include json/identity.events.account-suspension-setup.json
+      application/vnd.identity.events.account-suspension-updated+json:
+         schema: !include json/schema/identity.events.account-suspension-updated.json
+         example: !include json/identity.events.account-suspension-updated.json
+      application/vnd.identity.events.account-deregistered+json:
+         schema: !include json/schema/identity.events.account-deregistered.json
+         example: !include json/identity.events.account-deregistered.json
+      application/vnd.identity.events.account-reregistered+json:
+         schema: !include json/schema/identity.events.account-reregistered.json
+         example: !include json/identity.events.account-reregistered.json
+      application/vnd.identity.events.account-deleted+json:
+         schema: !include json/schema/identity.events.account-deleted.json
+         example: !include json/identity.events.account-deleted.json
+      application/vnd.identity.events.account-enrolment-changed+json:
+         schema: !include json/schema/identity.events.account-enrolment-changed.json
+         example: !include json/identity.events.account-enrolment-changed.json
+      application/vnd.identity.events.organisation-created+json:
+         schema: !include json/schema/identity.events.organisation-created.json
+         example: !include json/identity.events.organisation-created.json
+      application/vnd.identity.events.organisation-updated+json:
+         schema: !include json/schema/identity.events.organisation-updated.json
+         example: !include json/identity.events.organisation-updated.json
+      application/vnd.identity.events.organisation-deregistered+json:
+         schema: !include json/schema/identity.events.organisation-deregistered.json
+         example: !include json/identity.events.organisation-deregistered.json
+      application/vnd.identity.events.organisation-reregistered+json:
+         schema: !include json/schema/identity.events.organisation-reregistered.json
+         example: !include json/identity.events.organisation-reregistered.json
+      application/vnd.identity.events.organisation-deleted+json:
+         schema: !include json/schema/identity.events.organisation-deleted.json
+         example: !include json/identity.events.organisation-deleted.json
+      application/vnd.identity.events.organisation-synchronisation+json:
+         schema: !include json/schema/identity.events.organisation-synchronisation.json
+         example: !include json/identity.events.organisation-synchronisation.json
+    responses:
+      202:
+        description: Accepted
+      400:
+        description: Bad Request
+      500:
+        description: Internal Server Error

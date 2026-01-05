@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/staging/json/schemas/event/staging.record-idam-command.json",
+  "type": "object",
+  "properties": {
+    "idamEvent": {
+      "type": "object",
+      "properties": {
+        "_metadata": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "id"
+          ],
+          "additionalProperties" : true
+        }
+      },
+      "required": [
+        "_metadata"
+      ],
+      "additionalProperties" : true
+    }
+  },
+  "required": [
+    "idamEvent"
+  ]
+}

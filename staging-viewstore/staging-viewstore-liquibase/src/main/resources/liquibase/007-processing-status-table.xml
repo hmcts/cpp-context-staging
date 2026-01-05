@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns = "http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation = "http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet id = "7" author = "Staging">
+
+        <createTable tableName = "file_processing_status">
+            <column name = "id" type = "UUID">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name = "filename" type = "TEXT"/>
+            <column name = "status" type = "TEXT"/>
+            <column name = "time_stamp" type = "DATETIME"/>
+        </createTable>
+
+        <createTable tableName = "file_processing_status_message">
+            <column name = "id" type = "UUID">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name = "message_key" type = "TEXT"/>
+            <column name = "file_processing_status_id" type = "UUID"/>
+        </createTable>
+
+        <createTable tableName = "file_processing_status_message_param">
+            <column name = "id" type = "UUID">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name = "file_processing_status_message_id" type = "UUID"/>
+            <column name = "param_name" type = "TEXT">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name = "param_value" type = "TEXT"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="file_processing_status_message_id"
+                                 baseTableName="file_processing_status_message_param"
+                                 constraintName="fk_file_processing_status_message_param_file_processing_status_message"
+                                 referencedColumnNames="id"
+                                 referencedTableName="file_processing_status_message"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns = "http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation = "http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet id = "1" author = "Staging">
+        <createTable tableName = "c2i_external_transaction">
+            <column name = "transaction_id" type = "BIGINT"/>
+            <column name = "cpp_case_id" type = "UUID"/>
+            <column name = "urn" type = "TEXT"/>
+            <column name = "request" type = "TEXT"/>
+            <column name = "response" type = "TEXT"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

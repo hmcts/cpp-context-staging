@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns = "http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation = "http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+    <changeSet id = "2" author = "Staging">
+        <createTable tableName = "c2i_request_details">
+            <column name = "id" type = "UUID">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name = "source" type = "TEXT"/>
+            <column name = "cpp_case_id" type = "UUID"/>
+            <column name = "urn" type = "TEXT"/>
+            <column name = "transaction_Id" type = "TEXT"/>
+            <column name = "request_Id" type = "TEXT"/>
+            <column name = "transaction_time_stamp" type = "DATETIME"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
