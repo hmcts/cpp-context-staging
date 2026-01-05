@@ -4,7 +4,7 @@
   <parent>
     <groupId>uk.gov.moj.cpp.staging</groupId>
     <artifactId>staging-command</artifactId>
-    <version>17.0.19-SNAPSHOT</version>
+    <version>17.0.20-SNAPSHOT</version>
   </parent>
 
     <artifactId>staging-command-handler</artifactId>
