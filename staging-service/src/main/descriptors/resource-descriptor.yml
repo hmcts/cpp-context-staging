@@ -1,0 +1,58 @@
+---
+resource_descriptor:
+  spec_version: '1.0.0'
+  version: '${project.version}'
+
+  resources:
+    - name: java:/app/staging-service/DS.eventstore
+      type: xa-datasource
+      setup:
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: event-repository-liquibase
+            type: jar
+            version: '${cpp.framework.version}'
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: aggregate-snapshot-repository-liquibase
+            type: jar
+            version: '${project.version}'
+
+    - name: java:/DS.staging
+      type: xa-datasource
+      setup:
+        - type: liquibase
+          maven:
+            groupId: uk.gov.justice.services
+            artifactId: event-buffer-liquibase
+            type: jar
+            version: '${cpp.framework.version}'
+        - type: liquibase
+          maven:
+            groupId: uk.gov.moj.cpp.staging
+            artifactId: staging-viewstore-liquibase
+            type: jar
+            version: '${project.version}'
+
+    - name: staging.controller.command
+      type: queue
+    - name: staging.handler.command
+      type: queue
+    - name: staging.event
+      type: topic
+    - name: public.event
+      type: topic
+
+  services:
+    # staging provides these service mappings
+    - name: 'staging-service'
+      id: 'staging_service'
+      target: '/staging-service'
+      map:
+        - '/staging-command-api'
+        - '/staging-command-handler'
+        - '/staging-event-api'
+        - '/staging-event-processor'
+      matcher: '/staging-[^/]+'

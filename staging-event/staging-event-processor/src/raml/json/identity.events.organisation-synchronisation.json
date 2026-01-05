@@ -1,0 +1,20 @@
+{
+  "_metadata": {
+    "name": "identity.events.organisation-synchronisation",
+    "id": "1ae69330-ba19-4c4a-9489-d766b9cddee1",
+    "causation": [
+      "c67c8260-42ec-4c0b-830e-cd51c8f37174"
+    ]
+  },
+  "timeTriggered": "2011-12-03T10:15:30+01:00",
+  "idamOrganisationId": "1fc69990-bf59-4c4a-9489-d766b9abde9a",
+  "organisationType": "LEGAL_ORGANISATION",
+  "organisationName": "Bodgit and Scarper LLP",
+  "addressLine1": "Legal House",
+  "addressLine2": "15 Sewell Street",
+  "addressLine3": "Hammersmith",
+  "addressLine4": "London",
+  "addressPostcode": "SE14 2AB",
+  "phoneNumber": "080012345678",
+  "email": "joe@example.com"
+}

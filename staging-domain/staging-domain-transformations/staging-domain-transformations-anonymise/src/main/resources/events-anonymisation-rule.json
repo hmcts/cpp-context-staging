@@ -1,0 +1,14 @@
+{
+  "events": [
+    {
+      "eventName": "staging.record-idam-command",
+      "fieldsToBeIgnored": [
+        "$.idamEvent.payload.idamAccountType",
+        "$.idamEvent.payload.eventType"
+      ]
+    }
+  ]
+}
+
+
+

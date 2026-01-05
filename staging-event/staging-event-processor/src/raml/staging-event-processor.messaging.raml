@@ -1,0 +1,57 @@
+#%RAML 0.8
+title: API Using media type in the URL
+baseUri: message://event/processor/message/staging
+
+/staging.processor.event:
+    post:
+      body:
+        application/vnd.identity.events.account-created+json:
+           schema: !include json/schema/identity.events.account-created.json
+           example: !include json/identity.events.account-created.json
+        application/vnd.identity.events.account-updated+json:
+           schema: !include json/schema/identity.events.account-updated.json
+           example: !include json/identity.events.account-updated.json
+        application/vnd.identity.events.account-suspension-setup+json:
+           schema: !include json/schema/identity.events.account-suspension-setup.json
+           example: !include json/identity.events.account-suspension-setup.json
+        application/vnd.identity.events.account-suspension-updated+json:
+           schema: !include json/schema/identity.events.account-suspension-updated.json
+           example: !include json/identity.events.account-suspension-updated.json
+        application/vnd.identity.events.account-deregistered+json:
+           schema: !include json/schema/identity.events.account-deregistered.json
+           example: !include json/identity.events.account-deregistered.json
+        application/vnd.identity.events.account-reregistered+json:
+           schema: !include json/schema/identity.events.account-reregistered.json
+           example: !include json/identity.events.account-reregistered.json
+        application/vnd.identity.events.account-deleted+json:
+           schema: !include json/schema/identity.events.account-deleted.json
+           example: !include json/identity.events.account-deleted.json
+        application/vnd.identity.events.account-enrolment-changed+json:
+           schema: !include json/schema/identity.events.account-enrolment-changed.json
+           example: !include json/identity.events.account-enrolment-changed.json
+        application/vnd.identity.events.organisation-created+json:
+           schema: !include json/schema/identity.events.organisation-created.json
+           example: !include json/identity.events.organisation-created.json
+        application/vnd.identity.events.organisation-updated+json:
+           schema: !include json/schema/identity.events.organisation-updated.json
+           example: !include json/identity.events.organisation-updated.json
+        application/vnd.identity.events.organisation-deregistered+json:
+           schema: !include json/schema/identity.events.organisation-deregistered.json
+           example: !include json/identity.events.organisation-deregistered.json
+        application/vnd.identity.events.organisation-reregistered+json:
+           schema: !include json/schema/identity.events.organisation-reregistered.json
+           example: !include json/identity.events.organisation-reregistered.json
+        application/vnd.identity.events.organisation-deleted+json:
+           schema: !include json/schema/identity.events.organisation-deleted.json
+           example: !include json/identity.events.organisation-deleted.json
+        application/vnd.identity.events.organisation-synchronisation+json:
+           schema: !include json/schema/identity.events.organisation-synchronisation.json
+           example: !include json/identity.events.organisation-synchronisation.json
+
+/staging.event:
+  post:
+    body:
+        application/vnd.staging.record-idam-command+json:
+            schema: !include json/schema/staging.record-idam-command.json
+            example: !include json/staging.record-idam-command.json
+

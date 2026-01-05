@@ -1,0 +1,15 @@
+{
+  "_metadata": {
+    "name": "identity.events.account-updated",
+    "id": "1ae69330-ba19-4c4a-9489-d766b9cddee1"
+  },
+  "timeTriggered": "2011-12-03T10:15:30+01:00",
+  "idamId": "3abb0c29-de0c-4b92-918f-1b87d05453bb",
+  "idamOrgId": "1fc69990-bf59-4c4a-9489-d766b9abde9a",
+  "idamAccountType": "User",
+  "title": "Miss",
+  "firstName": "Josephine",
+  "middleName": "Janice",
+  "lastName": "Bloggs",
+  "email": "j.bloggs@example.com"
+}

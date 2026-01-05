@@ -1,0 +1,1 @@
+mvn -Dliquibase.url=jdbc:postgresql://localhost:5432/stagingviewstore -Dliquibase.username=staging -Dliquibase.password=staging -Dliquibase.logLevel=info resources:resources liquibase:update

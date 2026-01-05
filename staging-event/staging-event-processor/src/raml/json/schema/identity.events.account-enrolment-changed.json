@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cpp.moj.gov.uk/staging/json/schemas/event/identity.events.account-enrolment-changed.json",
+  "type": "object",
+  "properties": {
+    "timeTriggered": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "idamId": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+    },
+    "idamOrgId": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+    },
+    "idamAccountType": {
+      "enum": [
+        "User",
+        "CPP-Support-Admin",
+        "Organisation-Admin"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "middleName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "required": [
+    "timeTriggered",
+    "idamId",
+    "idamOrgId",
+    "idamAccountType",
+    "firstName",
+    "lastName",
+    "email"
+  ],
+  "additionalProperties": true
+}

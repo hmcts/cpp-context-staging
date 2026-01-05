@@ -1,0 +1,134 @@
+package uk.gov.justice.api.resource.identity.accesscontrol;
+
+import uk.gov.moj.cpp.accesscontrol.drools.Outcome;
+import uk.gov.moj.cpp.accesscontrol.drools.Action;
+import java.util.Arrays;
+import uk.gov.justice.api.resource.identity.RuleConstants;
+
+global uk.gov.moj.cpp.accesscontrol.common.providers.UserAndGroupProvider userAndGroupProvider;
+
+rule "Event - Rule for Creating a user"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.account-created");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for Updating a user"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.account-updated");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for account-suspension-setup"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.account-suspension-setup");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for account-suspension-updated"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.account-suspension-updated");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for deregistering a user"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.account-deregistered");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for reregistering a user"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.account-reregistered");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for account-deleted"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.account-deleted");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for account-enrolment-changed"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.account-enrolment-changed");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for creating an organisation"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.organisation-created");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for updating an organisation"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.organisation-updated");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for organisation-deregistered"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.organisation-deregistered");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for organisation-reregistered"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.organisation-reregistered");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for organisation-deleted"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.organisation-deleted");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end
+
+rule "Event - Rule for organisation-synchronisation"
+  when
+    $outcome: Outcome();
+    $action: Action(name == "identity.events.organisation-synchronisation");
+    eval(userAndGroupProvider.isMemberOfAnyOfTheSuppliedGroups($action, RuleConstants.getIdamGroups()))
+  then
+    $outcome.setSuccess(true);
+end

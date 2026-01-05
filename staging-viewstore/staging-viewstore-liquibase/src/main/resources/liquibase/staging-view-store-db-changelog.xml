@@ -1,0 +1,23 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="liquibase/001-create-external-transaction-table.xml"/>
+    <include file="liquibase/002-c2i-request-details-table.xml"/>
+    <include file="liquibase/003-add-cloumn-c2i-request-details.xml"/>
+    <include file="liquibase/004-rename-cloumn-c2i-request-details.xml"/>
+    <include file="liquibase/005-rename-timestamp-column-c2i-request-details.xml"/>
+    <include file="liquibase/006-modify-transactionid-column-all-tables.xml"/>
+    <include file="liquibase/007-processing-status-table.xml"/>
+    <include file="liquibase/008-processing-status-table.xml"/>
+    <include file="liquibase/009-remove-tables-create-c2itransaction.xml"/>
+    <include file="liquibase/010-cases-import-table.xml"/>
+    <include file="liquibase/011-add-time-zone.xml"/>
+    <include file="liquibase/012-sjs-interface-status.xml"/>
+    <include file="liquibase/013-c2i-transaction-with-suspect.xml"/>
+    <include file="liquibase/014-c2i-transaction-without-suspect.xml"/>
+    <include file="liquibase/015-atcm-viewstore-cleanup.xml"/>
+    <include file="liquibase/016-drop-process-event-index.xml"/>
+
+</databaseChangeLog>

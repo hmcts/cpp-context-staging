@@ -1,0 +1,15 @@
+event_sources:
+  - name: staging
+    is_default: true
+    location:
+      jms_uri:  jms:topic:staging.event
+      rest_uri: http://localhost:8080/staging-service/event-source-api/rest
+      data_source: java:/app/staging-service/DS.eventstore
+
+  - name: staging.processor
+    location:
+      jms_uri:  jms:queue:staging.processor.event
+
+  - name: public
+    location:
+      jms_uri:  jms:topic:public.event

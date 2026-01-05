@@ -1,0 +1,5 @@
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="EVENT_API" packages="uk.gov.justice.api.resource.identity.accesscontrol" default="false">
+        <ksession name="EVENT_API_SESSION" default="false" type="stateless"/>
+    </kbase>
+</kmodule>
