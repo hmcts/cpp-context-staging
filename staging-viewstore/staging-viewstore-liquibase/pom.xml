@@ -4,7 +4,7 @@
     <parent>
         <groupId>uk.gov.moj.cpp.staging</groupId>
         <artifactId>staging-viewstore</artifactId>
-        <version>17.104.20-PEG-2792-SNAPSHOT</version>
+        <version>17.104.21-PEG-2792-SNAPSHOT</version>
     </parent>
 
     <artifactId>staging-viewstore-liquibase</artifactId>
