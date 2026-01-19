@@ -18,7 +18,7 @@ import uk.gov.moj.cpp.staging.event.processor.staging.helper.OrganisationUpdated
 
 import java.util.UUID;
 
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonValue;
 
 import org.junit.jupiter.api.Test;
@@ -75,7 +75,7 @@ public class IdamCommandRecordedListenerTest {
     @Test
     void shouldCallHandle() {
         idamCommandRecordedListener.initialize();
-        final JsonValue updateUserEvent = Json.createObjectBuilder()
+        final JsonValue updateUserEvent = JsonObjects.createObjectBuilder()
                 .add(IDAM_ID, IDAM_ID_VALUE)
                 .add(IDAM_ORG_ID, IDAM_ORG_ID_VALUE)
                 .add(FIRST_NAME, FIRST_NAME_VALUE)
@@ -84,7 +84,7 @@ public class IdamCommandRecordedListenerTest {
                 .add(EMAIL, EMAIL_VALUE)
                 .build();
 
-        final JsonValue metaData = Json.createObjectBuilder()
+        final JsonValue metaData = JsonObjects.createObjectBuilder()
                 .add("name",COMMAND_NAME)
                 .add("id", UUID.randomUUID().toString())
                 .build();
@@ -98,11 +98,11 @@ public class IdamCommandRecordedListenerTest {
     }
 
     private JsonEnvelope buildCppMessageForIdamCommandRecordedEvent(JsonValue idamPayload, final JsonValue metaData) {
-        final JsonValue idamEvent = Json.createObjectBuilder()
+        final JsonValue idamEvent = JsonObjects.createObjectBuilder()
                 .add("_metadata", metaData)
                 .add("payload", idamPayload).build();
 
-        final JsonValue cppPayload = Json.createObjectBuilder().add("idamEvent", idamEvent).build();
+        final JsonValue cppPayload = JsonObjects.createObjectBuilder().add("idamEvent", idamEvent).build();
         assertThat(cppPayload, is(notNullValue()));
         return envelopeFrom(metadataWithRandomUUID(COMMAND_NAME), cppPayload);
     }

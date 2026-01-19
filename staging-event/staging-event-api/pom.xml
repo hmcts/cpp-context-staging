@@ -4,7 +4,7 @@
     <parent>
         <groupId>uk.gov.moj.cpp.staging</groupId>
         <artifactId>staging-event</artifactId>
-        <version>17.0.20-SNAPSHOT</version>
+        <version>17.104.20-PEG-2792-SNAPSHOT</version>
     </parent>
     <artifactId>staging-event-api</artifactId>
     <name>staging-event-api</name>
