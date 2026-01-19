@@ -18,7 +18,7 @@ import uk.gov.justice.services.test.utils.core.enveloper.EnveloperFactory;
 
 import java.util.UUID;
 
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonValue;
 
 import org.junit.jupiter.api.Test;
@@ -68,7 +68,7 @@ class OrganisationCreatedIdamEventHelperTest {
 
     @Test
     void shouldProcessOrganisationCreated() {
-        final JsonValue organisationCreatedEvent = Json.createObjectBuilder()
+        final JsonValue organisationCreatedEvent = JsonObjects.createObjectBuilder()
                 .add(IDAM_ORG_ID,IDAM_ORG_ID_VALUE)
                 .add(ORGANISATION_TYPE,ORGANISATION_TYPE_VALUE)
                 .add(ORGANISATION_NAME,ORGANISATION_NAME_VALUE)
@@ -86,8 +86,8 @@ class OrganisationCreatedIdamEventHelperTest {
         assertOrganisationCreatedCommandSent(jsonEnvelope);
     }
     private JsonEnvelope buildMessageForOrganisationCreatedIdamEvent(JsonValue orgIdamPayload) {
-        final JsonValue idamEvent = Json.createObjectBuilder().add("payload", orgIdamPayload).build();
-        final JsonValue cppPayload = Json.createObjectBuilder().add("idamEvent", idamEvent).build();
+        final JsonValue idamEvent = JsonObjects.createObjectBuilder().add("payload", orgIdamPayload).build();
+        final JsonValue cppPayload = JsonObjects.createObjectBuilder().add("idamEvent", idamEvent).build();
         return envelopeFrom(metadataWithRandomUUID("identity.events.organisation-created"), cppPayload);
     }
 

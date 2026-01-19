@@ -8,7 +8,7 @@ import uk.gov.justice.services.core.sender.Sender;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 
 import javax.inject.Inject;
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonObject;
 import javax.json.JsonString;
 
@@ -80,14 +80,14 @@ public class IdamEventProcessorHelper {
 
     private JsonObject buildAccountDeletedCommand(final JsonEnvelope event) {
         final JsonObject idamEventPayload = getPayload(event);
-        return Json.createObjectBuilder()
+        return JsonObjects.createObjectBuilder()
                 .add(USER_ID, idamEventPayload.getString("idamId"))
                 .build();
     }
 
     private JsonObject buildUserDetailsForCommand(final JsonEnvelope event) {
         final JsonObject idamEventPayload = getPayload(event);
-        return Json.createObjectBuilder()
+        return JsonObjects.createObjectBuilder()
                 .add(USER_ID, idamEventPayload.getString("idamId"))
                 .add(ORGANISATION_ID, idamEventPayload.getString("idamOrgId"))
                 .add(FIRST_NAME, idamEventPayload.getString(FIRST_NAME))
@@ -100,7 +100,7 @@ public class IdamEventProcessorHelper {
 
     private JsonObject buildRegisterDetailsForCommand(final JsonEnvelope event) {
         final JsonObject idamEventPayload = getPayload(event);
-        return Json.createObjectBuilder()
+        return JsonObjects.createObjectBuilder()
                 .add(USER_ID, idamEventPayload.getString("idamId"))
                 .add(ORGANISATION_ID, idamEventPayload.getString("idamOrgId"))
                 .build();

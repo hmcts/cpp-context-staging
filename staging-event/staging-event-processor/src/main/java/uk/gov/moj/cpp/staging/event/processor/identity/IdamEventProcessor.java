@@ -9,7 +9,7 @@ import uk.gov.justice.services.core.sender.Sender;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 
 import javax.inject.Inject;
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonObject;
 
 @ServiceComponent(Component.EVENT_PROCESSOR)
@@ -94,12 +94,12 @@ public class IdamEventProcessor {
     }
 
     private void sendIdamCommandToStagingApi(final JsonEnvelope event) {
-        JsonObject idamEvent = Json.createObjectBuilder()
+        JsonObject idamEvent = JsonObjects.createObjectBuilder()
                 .add("_metadata", event.metadata().asJsonObject())
                 .add("payload", event.payloadAsJsonObject())
                 .build();
 
-        JsonObject payload = Json.createObjectBuilder()
+        JsonObject payload = JsonObjects.createObjectBuilder()
                 .add("idamEvent", idamEvent)
                 .build();
 
