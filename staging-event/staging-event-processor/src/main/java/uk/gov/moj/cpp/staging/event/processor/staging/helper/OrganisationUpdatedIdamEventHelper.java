@@ -8,7 +8,7 @@ import uk.gov.justice.services.core.sender.Sender;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 
 import javax.inject.Inject;
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 
@@ -42,7 +42,7 @@ public class OrganisationUpdatedIdamEventHelper {
 
     private JsonObject buildUpdateOrganisationCommand(final JsonEnvelope event) {
         final JsonObject idamEventPayload = getPayload(event);
-        final JsonObjectBuilder builder = Json.createObjectBuilder();
+        final JsonObjectBuilder builder = JsonObjects.createObjectBuilder();
         idamEventPayload.keySet().stream().filter(x -> !"idamOrganisationId".equalsIgnoreCase(x)).forEach(x -> builder.add(x, idamEventPayload.getString(x)));
         return builder.add("organisationId", idamEventPayload.getString("idamOrganisationId")).build();
     }
