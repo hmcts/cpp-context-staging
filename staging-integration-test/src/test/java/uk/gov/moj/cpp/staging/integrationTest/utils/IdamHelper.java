@@ -49,7 +49,7 @@ import java.util.stream.Stream;
 import javax.jms.JMSException;
 import javax.jms.MessageConsumer;
 import javax.jms.TextMessage;
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.ws.rs.core.MultivaluedHashMap;
@@ -152,7 +152,7 @@ public class IdamHelper {
     }
 
     public String getUIdamUserIdFromRaml(String command) {
-        JsonReader jsonReader = Json.createReader(new StringReader(getPayload(command)));
+        JsonReader jsonReader = JsonObjects.createReader(new StringReader(getPayload(command)));
         JsonObject payload = jsonReader.readObject();
         jsonReader.close();
 
