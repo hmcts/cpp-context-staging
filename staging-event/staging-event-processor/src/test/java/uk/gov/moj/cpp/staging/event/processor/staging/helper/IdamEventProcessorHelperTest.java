@@ -20,7 +20,7 @@ import uk.gov.justice.services.test.utils.core.enveloper.EnveloperFactory;
 
 import java.util.UUID;
 
-import javax.json.Json;
+import uk.gov.justice.services.messaging.JsonObjects;
 import javax.json.JsonArray;
 import javax.json.JsonValue;
 
@@ -71,8 +71,8 @@ public class IdamEventProcessorHelperTest {
 
     @Test
     public void shouldCreateNewUserCommandFromEnrolmentChangedEventForCppService() {
-        final JsonArray servicesArray = Json.createArrayBuilder().add("CPP").build();
-        final JsonValue enrolmentChangedEvent = Json.createObjectBuilder()
+        final JsonArray servicesArray = JsonObjects.createArrayBuilder().add("CPP").build();
+        final JsonValue enrolmentChangedEvent = JsonObjects.createObjectBuilder()
                 .add(IDAM_ID, IDAM_ID_VALUE)
                 .add(IDAM_ORG_ID, IDAM_ORG_ID_VALUE)
                 .add(FIRST_NAME, FIRST_NAME_VALUE)
@@ -90,8 +90,8 @@ public class IdamEventProcessorHelperTest {
 
     @Test
     public void shouldNotCreateNewUserCommandFromEnrolmentChangedEventForNonCppService() {
-        final JsonArray servicesArray = Json.createArrayBuilder().add("ROTA").build();
-        final JsonValue enrolmentChangedEvent = Json.createObjectBuilder()
+        final JsonArray servicesArray = JsonObjects.createArrayBuilder().add("ROTA").build();
+        final JsonValue enrolmentChangedEvent = JsonObjects.createObjectBuilder()
                 .add(IDAM_ID, IDAM_ID_VALUE)
                 .add(FIRST_NAME, FIRST_NAME_VALUE)
                 .add(LAST_NAME, LAST_NAME_VALUE)
@@ -108,8 +108,8 @@ public class IdamEventProcessorHelperTest {
 
     @Test
     public void shouldCreateNewUserCommandFromEnrolmentChangedEventForCppAndNonCppService() {
-        final JsonArray servicesArray = Json.createArrayBuilder().add("CPP").add("ROTA").build();
-        final JsonValue enrolmentChangedEvent = Json.createObjectBuilder()
+        final JsonArray servicesArray = JsonObjects.createArrayBuilder().add("CPP").add("ROTA").build();
+        final JsonValue enrolmentChangedEvent = JsonObjects.createObjectBuilder()
                 .add(IDAM_ID, IDAM_ID_VALUE)
                 .add(IDAM_ORG_ID, IDAM_ORG_ID_VALUE)
                 .add(FIRST_NAME, FIRST_NAME_VALUE)
@@ -127,7 +127,7 @@ public class IdamEventProcessorHelperTest {
 
     @Test
     public void shouldCreateUpdateUserCommandFromUserUpdatedEvent() {
-        final JsonValue updateUserEvent = Json.createObjectBuilder()
+        final JsonValue updateUserEvent = JsonObjects.createObjectBuilder()
                 .add(IDAM_ID, IDAM_ID_VALUE)
                 .add(IDAM_ORG_ID, IDAM_ORG_ID_VALUE)
                 .add(FIRST_NAME, FIRST_NAME_VALUE)
@@ -144,7 +144,7 @@ public class IdamEventProcessorHelperTest {
 
     @Test
     public void shouldCreateReRegisterCommandFromUserUpdatedEvent() {
-        final JsonValue reRegisterUser = Json.createObjectBuilder()
+        final JsonValue reRegisterUser = JsonObjects.createObjectBuilder()
                 .add(IDAM_ID, IDAM_ID_VALUE)
                 .add(IDAM_ORG_ID, IDAM_ORG_ID_VALUE)
                 .build();
@@ -157,7 +157,7 @@ public class IdamEventProcessorHelperTest {
 
     @Test
     public void shouldCreateDeRegisterCommandFromUserUpdatedEvent() {
-        final JsonValue reRegisterUser = Json.createObjectBuilder()
+        final JsonValue reRegisterUser = JsonObjects.createObjectBuilder()
                 .add(IDAM_ID, IDAM_ID_VALUE)
                 .add(IDAM_ORG_ID, IDAM_ORG_ID_VALUE)
                 .build();
@@ -169,9 +169,9 @@ public class IdamEventProcessorHelperTest {
     }
 
     private JsonEnvelope buildCppMessageForIdamEvent(JsonValue idamPayload) {
-        final JsonValue idamEvent = Json.createObjectBuilder().add("payload", idamPayload).build();
+        final JsonValue idamEvent = JsonObjects.createObjectBuilder().add("payload", idamPayload).build();
 
-        final JsonValue cppPayload = Json.createObjectBuilder().add("idamEvent", idamEvent).build();
+        final JsonValue cppPayload = JsonObjects.createObjectBuilder().add("idamEvent", idamEvent).build();
 
         return envelopeFrom(metadataWithRandomUUID("staging.record-idam-command"), cppPayload);
     }
