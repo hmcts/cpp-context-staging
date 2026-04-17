@@ -4,7 +4,7 @@
     <parent>
         <groupId>uk.gov.moj.cpp.staging</groupId>
         <artifactId>staging-domain</artifactId>
-        <version>17.0.1--PEG-2848-SNAPSHOT</version>
+        <version>17.0.1--PEG-2848-R-SNAPSHOT</version>
     </parent>
 
     <artifactId>staging-domain-event</artifactId>

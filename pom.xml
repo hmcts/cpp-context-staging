@@ -9,7 +9,7 @@
 
     <groupId>uk.gov.moj.cpp.staging</groupId>
     <artifactId>staging-parent</artifactId>
-    <version>17.0.1--PEG-2848-SNAPSHOT</version>
+    <version>17.0.1--PEG-2848-R-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>staging Context - Parent</name>
