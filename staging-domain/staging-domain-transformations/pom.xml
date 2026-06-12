@@ -4,7 +4,7 @@
     <parent>
         <groupId>uk.gov.moj.cpp.staging</groupId>
         <artifactId>staging-domain</artifactId>
-        <version>17.104.21-PEG-2848-R14-SNAPSHOT</version>
+        <version>17.104.21-SNAPSHOT</version>
     </parent>
     <packaging>pom</packaging>
     <artifactId>staging-domain-transformations</artifactId>
