@@ -19,7 +19,7 @@ import uk.gov.moj.cpp.staging.event.processor.staging.helper.OrganisationUpdated
 import java.util.UUID;
 
 import uk.gov.justice.services.messaging.JsonObjects;
-import javax.json.JsonValue;
+import jakarta.json.JsonValue;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

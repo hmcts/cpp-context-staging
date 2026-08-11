@@ -8,9 +8,9 @@ import uk.gov.justice.services.core.enveloper.Enveloper;
 import uk.gov.justice.services.core.sender.Sender;
 import uk.gov.justice.services.messaging.JsonEnvelope;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 import uk.gov.justice.services.messaging.JsonObjects;
-import javax.json.JsonObject;
+import jakarta.json.JsonObject;
 
 @ServiceComponent(Component.EVENT_PROCESSOR)
 public class IdamEventProcessor {

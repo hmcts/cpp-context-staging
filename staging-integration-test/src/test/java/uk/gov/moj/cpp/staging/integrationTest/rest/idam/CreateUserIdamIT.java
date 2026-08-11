@@ -9,7 +9,7 @@ import static uk.gov.moj.cpp.staging.integrationTest.utils.WiremockTestHelper.ge
 import uk.gov.moj.cpp.staging.integrationTest.rest.BaseIT;
 import uk.gov.moj.cpp.staging.integrationTest.utils.IdamHelper;
 
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 
 import io.restassured.path.json.JsonPath;
 import org.apache.http.HttpStatus;

@@ -8,7 +8,7 @@ import static uk.gov.moj.cpp.staging.integrationTest.rest.idam.IdamConstants.RES
 import uk.gov.moj.cpp.staging.integrationTest.rest.BaseIT;
 import uk.gov.moj.cpp.staging.integrationTest.utils.IdamHelper;
 
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
