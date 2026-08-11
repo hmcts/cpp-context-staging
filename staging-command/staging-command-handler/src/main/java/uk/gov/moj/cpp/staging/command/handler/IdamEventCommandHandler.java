@@ -13,8 +13,8 @@ import uk.gov.moj.cpp.staging.event.IdamEventRecorded;
 
 import java.util.stream.Stream;
 
-import javax.inject.Inject;
-import javax.json.JsonObject;
+import jakarta.inject.Inject;
+import jakarta.json.JsonObject;
 
 @ServiceComponent(COMMAND_HANDLER)
 public class IdamEventCommandHandler {
